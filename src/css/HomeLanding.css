@@ -1,0 +1,65 @@
+/*HomeLanding.css*/
+
+.home-landing-div {
+  /*Set background color*/
+  background-color: #282c34da;
+  /*Set bottom border to 2px custom grey*/
+  border-bottom: 2px solid rgb(43, 42, 42);
+  /*Set the height of the div to be a minimum of a full viewport*/
+  min-height: 100vh;
+  /*Set the container as a flex container*/
+  display: flex;
+  /*Set the child elements to stack vertically*/
+  flex-direction: column;
+  /*Set the contents to horizontally align to the center*/
+  justify-content: center;
+}
+.home-landing-container {
+  /*Set the container as a flex container*/
+  display: flex;
+  /*Set a top margin of 100px*/
+  margin-top: 100px;
+}
+.main-image-container {
+  /*Assign a top margin of 6% above the container*/
+  margin-top: 6%;
+  /*Center the figure horizontally*/
+  margin-left: auto;
+  margin-right: auto;
+  /*Center text horizontally within the Figure element*/
+  text-align: center;
+}
+.main-image {
+  /*Set image max width to 40%*/
+  max-width: 40%;
+  /*Then allow the image to scale with auto width and height*/
+  width: auto;
+  height: auto;
+}
+.main-image-caption {
+  /*Set the image caption to font size 26px, a yellow color and 
+  double the line height to space the text lines better*/
+  font-size: 26px;
+  color: rgb(233, 180, 36);
+  line-height: 200%;
+}
+.products-link {
+  /*Set the Products link button as a flex container*/
+  display: flex;
+  /*Horizontally align to the center of the viewport*/
+  justify-content: center;
+  /*Ensure the button is centrally aligned vertically within its parent div*/
+  align-items: center;
+  /*Set the width and height of the button*/
+  width: 190px;
+  height: 45px;
+  /*Set the font weight to a thin bold (true bold is >=600)*/
+  font-weight: 500;
+  /*Set the button background color to a custom yellow*/
+  background-color: rgb(255, 197, 39);
+}
+@media (max-width: 576px) {
+  .main-image-caption {
+    font-size: 22px;
+  }
+}

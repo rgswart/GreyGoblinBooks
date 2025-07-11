@@ -1,0 +1,56 @@
+/*SignUp.css*/
+
+.sign-up-div {
+  /*Assign a white color to text*/
+  color: white;
+  /*Assign a grey background color*/
+  background-color: #282c34da;
+  /*prevent overflow in the x (horizontal plane)*/
+  overflow-x: hidden;
+}
+.sign-up-form-container {
+  /*Set as a flex container*/
+  display: flex;
+  /*Center horizontally*/
+  justify-content: center;
+  /*Full height to full height of the viewport*/
+  height: 100vh;
+  /*Set the width to the full width of the viewport*/
+  width: 100vw;
+}
+.sign-up-form {
+  /*Add a top margin of 100px*/
+  margin-top: 100px;
+}
+.form-label {
+  /*Assign a font size of 17px*/
+  font-size: 17px;
+}
+.sign-up-section {
+  /*Set as a flex container*/
+  display: flex;
+  /*Distribute space evenly between child elements (first at start, last at end)*/
+  justify-content: space-between;
+}
+.registration-alert {
+  /*Set a margin of 5px*/
+  margin: 5px;
+  /*Set the text to be a light bold (true bold is 600)*/
+  font-weight: 500;
+  /*Add a top and bottom padding of 10px*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.reset-button {
+  /*Set the positioning of the button as fixed so that its always visible in the same location
+    relative to the viewport*/
+  position: fixed;
+  /*Set a height of 45px to size the button*/
+  height: 45px;
+  /*Position the button 15px above the bottom  edge of the viewport*/
+  bottom: 15px;
+  /*Position the button 15px left of the right edge of the viewport*/
+  right: 15px;
+  /*Assign a font size of 18px*/
+  font-size: 18px;
+}

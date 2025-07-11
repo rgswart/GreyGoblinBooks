@@ -1,0 +1,22 @@
+/*Orders.css*/
+
+.order-div {
+  /*Set a background color of custom dark grey*/
+  background-color: #282c34da;
+  /*Set a minimum height of the parent div as 100% of the viewport*/
+  min-height: 100vh;
+}
+.order-title {
+  /*Set padding above the title of 120px*/
+  padding-top: 120px;
+  /*Set title text color to a custom yellow*/
+  color: rgb(233, 180, 36);
+  /*Set a text shadow to make the text more visible and distinct on dark backgrounds*/
+  text-shadow: 1px 1px 1px black;
+}
+.no-orders-header {
+  /*Set title text color to a custom yellow*/
+  color: rgb(52, 157, 255);
+  /*Set a text shadow to make the text more visible and distinct on dark backgrounds*/
+  text-shadow: 2px 2px 2px black;
+}

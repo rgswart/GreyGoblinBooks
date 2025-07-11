@@ -1,0 +1,42 @@
+/*CartIcon.css*/
+
+.cart-icon-empty {
+  /*Set text color for the cart icon (it is colored as text)*/
+  color: rgb(92, 92, 92);
+}
+.cart-icon-empty:hover {
+  /*Set text color for the cart icon on hover*/
+  color: rgb(56, 56, 56);
+}
+.cart-icon {
+  /*Designate the size of the cart icon*/
+  width: 24px;
+  height: 24px;
+}
+.cart-item {
+  /*Designate the font size of the cart item number*/
+  font-size: 20px;
+}
+/*Scale the cart icon down for stepwise for multiple different smaller viewport width intervals*/
+@media (max-width: 576px) and (min-width: 380px) {
+  .cart-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media (max-width: 380px) and (min-width: 360px) {
+  .cart-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .cart-item {
+    /*Reduce the size of number indicating the number of items in the cart*/
+    font-size: 18px;
+  }
+}
+@media (max-width: 359px) {
+  .cart-item {
+    /*Remove the render of the cart items number at smaller viewports to improve layout*/
+    display: none;
+  }
+}

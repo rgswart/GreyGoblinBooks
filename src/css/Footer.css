@@ -1,0 +1,29 @@
+/*Footer.css*/
+
+.footer-div {
+  /*Set the footer position as fixed relative to the viewport*/
+  position: fixed;
+  /*Set the position to start at the bottom left of the viewport*/
+  bottom: 0;
+  left: 0;
+  /*Set the width of the div to be 100% the width of the viewport*/
+  width: 100vw;
+}
+
+.footer-container {
+  /*Set as a flex container*/
+  display: flex;
+  /*Ensure the contents are aligned centrally on the horizontal axis*/
+  justify-content: center;
+  /*Align the contents vertically in the center*/
+  align-items: center;
+  /*Set the height of the footer as 35px*/
+  height: 35px;
+}
+
+.footer-text {
+  /*Remove the margins*/
+  margin: 0;
+  /*Set a light bold font (true bold is 600)*/
+  font-weight: 500;
+}

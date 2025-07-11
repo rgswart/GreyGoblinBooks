@@ -1,0 +1,48 @@
+/*App.css*/
+
+/*This controls several global css effects*/
+
+/*Custom css classes may override these general rules*/
+
+.dropdown-menu {
+  /*Assign dropdown menus a maximum height of 50% of the viewport height*/
+  max-height: 50vh;
+  /*Make the menu scrollable*/
+  overflow-y: auto;
+}
+/*Add a border to the bottom of the dropdown to avoid the menu stretching too far*/
+.dropdown-menu::after {
+  content: "";
+  display: block;
+  height: 10px;
+}
+.card {
+  /*Add a grey border around each card*/
+  border: 2px solid #282c34da;
+  /*Add rounded borders to the cards*/
+  border-radius: 10px;
+  /*Add spacing between cards*/
+  margin-bottom: 20px;
+  /*Add a shadow to the cards*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /*Add a transition effect to the cards*/
+  transition: all 0.3s ease;
+}
+.card:hover {
+  /*Add a card hover effect to change the card border to dark blue*/
+  border: 2px solid #2685d3;
+}
+.card-body {
+  /*Add padding to the card*/
+  padding: 20px;
+}
+.card-title {
+  /*Set font size of the title*/
+  font-size: 1.25rem;
+  /*Set title text to bold*/
+  font-weight: bold;
+}
+.card-text {
+  /*Change Card.text elements to font size of 1rem*/
+  font-size: 1rem;
+}

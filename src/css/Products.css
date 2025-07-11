@@ -1,0 +1,64 @@
+/*Products.css*/
+
+.product-div {
+  /*Assign a grey color to the background for the div surrounding container for Products functional component
+use !important to override bootstrap defaults*/
+  background-color: #282c34da !important;
+}
+.product-heading {
+  /*Set a custom yellow text color*/
+  color: rgb(233, 180, 36);
+}
+.product-heading-undertext {
+  /*Set a custom yellow text color*/
+  color: rgb(233, 180, 36);
+  font-size: 20px;
+}
+/*Assign an off white color to the dropdown-toggle button
+use !important to override bootstrap defaults*/
+.dropdown-toggle-1 {
+  background-color: rgb(240, 234, 234) !important;
+}
+/*Assign a light grey color to the dropdown-toggle button on hover
+use !important to override bootstrap defaults*/
+.dropdown-toggle-1:hover {
+  background-color: rgb(175, 171, 171) !important;
+}
+.cards {
+  /*Set the width to 100% of its parent allocation*/
+  width: 100%;
+  /*assign the position of relative*/
+  position: relative;
+  /*Assign this column as a flex container*/
+  display: flex;
+  /*set the flex direction as column to assign vertical stacking of child elements*/
+  flex-direction: column;
+  /*set the height of the flexbox to 100% of its parent allocation*/
+  height: 100%;
+}
+.cards-body {
+  /*Assign the body as a flex container*/
+  display: flex;
+  /*set the flex direction as column to assign vertical stacking of child elements*/
+  flex-direction: column;
+  /*The default value of flex-grow in a flex-container is 0, which means it will not grow relative to other items in the flex container.
+  With flex-grow as 1 this allows child elements to grow and fill available space evenly*/
+  flex-grow: 1;
+}
+
+.book-descriptions {
+  /*Justify the text*/
+  text-align: justify;
+}
+.dropdown-menu-2 {
+  /*Set a max height for the dropdown menu*/
+  max-height: 50vh;
+  /*Make the menu scrollable*/
+  overflow-y: auto;
+}
+/*Add a border to the bottom of the dropdown to avoid the menu stretching too far*/
+.dropdown-menu-2::after {
+  content: "";
+  display: block;
+  height: 10px;
+}
