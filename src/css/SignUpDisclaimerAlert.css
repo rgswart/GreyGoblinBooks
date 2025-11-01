@@ -1,0 +1,15 @@
+/*SignUpDisclaimerAlert.css*/
+
+.sign-up-disclaimer-alert {
+  /*Position = fixed to make it always visible*/
+  position: fixed;
+  /*Set it to the bottom of the viewport*/
+  bottom: 0;
+  left: 0;
+  /*Make the alert the full width of the viewport*/
+  width: 100%;
+  /*Set the z-stack height so that the text appears on top of most objects*/
+  z-index: 1100;
+  background-color: rgb(36, 210, 233);
+  font-weight: 500;
+}

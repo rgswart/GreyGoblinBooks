@@ -34,8 +34,8 @@ const DisclaimerAlert = () => {
       //With on click event handling to set the show state to false
       onClose={() => setShow(false)}
     >
-      This is not a real webstore. This is a demo project to showcase my web
-      development skills.
+      This is not a real webstore. This is a client-side only, demo project to
+      showcase my web development skills.
     </Alert>
   );
 };

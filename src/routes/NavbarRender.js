@@ -157,6 +157,3 @@ function NavbarRender() {
 }
 
 export default NavbarRender;
-
-//References//
-//Navbars (no date) React Bootstrap. Available at: https://react-bootstrap.github.io/docs/components/navbar (Accessed: 27 May 2025).

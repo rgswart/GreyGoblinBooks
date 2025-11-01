@@ -4,14 +4,14 @@
 
 //Import createSlice from redux-toolkit
 import { createSlice } from "@reduxjs/toolkit";
-//Import load and save localStorage utilities
+//Import load and save sessionStorage utilities
 import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils.js";
+  loadFromSessionStorage,
+  saveToSessionStorage,
+} from "../utils/sessionStorageUtils.js";
 
-//Initial state loaded from localStorage
-const initialState = loadFromLocalStorage("users", []);
+//Initial state loaded from sessionStorage
+const initialState = loadFromSessionStorage("users", []);
 
 // Create slice //
 
@@ -25,8 +25,8 @@ const userSlice = createSlice({
     addUser: (state, action) => {
       //Push constructed user as payload to state as array object
       state.push(action.payload);
-      //Save to localStorage
-      saveToLocalStorage("users", state);
+      //Save to sessionStorage
+      saveToSessionStorage("users", state);
     },
   },
 });

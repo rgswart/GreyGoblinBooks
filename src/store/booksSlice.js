@@ -1,4 +1,4 @@
-//booksSlice.js
+// store/booksSlice.js
 
 // Imports //
 
@@ -6,21 +6,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 //Import the booksData data component
 import { booksData } from "../data/BooksData.js";
-//Import load and save localStorage utilities
+//Import load and save sessionStorage utilities
 import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils.js";
+  loadFromSessionStorage,
+  saveToSessionStorage,
+} from "../utils/sessionStorageUtils.js";
 
 //Load rawBooks from saved booksData with fallback to default booksData
-const rawBooks = loadFromLocalStorage("booksData", booksData);
+const rawBooks = loadFromSessionStorage("booksData", booksData);
 
-//Convert any loaded books (including those created with constructors) into plain objects
-//This is a fix suggested by ChatGPT to overcome an initial render issue...
-// ...(couldn't change product color on first render) caused by the constructor
-//...the saved constructor interfered with prototype links
-//I was unwilling to abandon my constructor function and
-//chose this fix above defining booksData with object literals
+//convert books into plain objects
 const initialState = rawBooks.map((book) => ({ ...book }));
 
 // Create slice //
@@ -39,8 +34,8 @@ const booksSlice = createSlice({
       if (book) {
         //then change the book.colorIndex to the corresponding inputted colorIndex
         book.colorIndex = colorIndex;
-        //Save to localStorage
-        saveToLocalStorage("booksData", state);
+        //Save to sessionStorage
+        saveToSessionStorage("booksData", state);
       }
     },
   },

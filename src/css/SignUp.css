@@ -54,3 +54,6 @@
   /*Assign a font size of 18px*/
   font-size: 18px;
 }
+.password-toggle-button:hover {
+  color: rgb(0, 71, 138);
+}

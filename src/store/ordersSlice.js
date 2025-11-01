@@ -1,4 +1,4 @@
-//ordersSlice.js
+// store/ordersSlice.js
 
 // Imports //
 
@@ -7,14 +7,14 @@ import { createSlice } from "@reduxjs/toolkit";
 //Import the UUID library
 //UUID v4 generates a universally unique identifier based on random numbers
 import { v4 as uuidv4 } from "uuid";
-//Import load and save localStorage utilities
+//Import load and save sessionStorage utilities
 import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils.js";
+  loadFromSessionStorage,
+  saveToSessionStorage,
+} from "../utils/sessionStorageUtils.js";
 
-//Initial state loaded from localStorage
-const initialState = loadFromLocalStorage("orders", []);
+//Initial state loaded from sessionStorage
+const initialState = loadFromSessionStorage("orders", []);
 
 // Create slice //
 
@@ -61,8 +61,8 @@ const ordersSlice = createSlice({
       };
       //push the newOrder to the state
       state.push(newOrder);
-      //Save to localStorage
-      saveToLocalStorage("orders", state);
+      //Save to sessionStorage
+      saveToSessionStorage("orders", state);
     },
   },
 });

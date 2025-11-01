@@ -1,17 +1,17 @@
-//loginSlice.js
+// store/loginSlice.js
 
 // Imports //
 
 //Import createSlice from redux-toolkit
 import { createSlice } from "@reduxjs/toolkit";
-//Import load and save localStorage utilities
+//Import load and save sessionStorage utilities
 import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils.js";
+  loadFromSessionStorage,
+  saveToSessionStorage,
+} from "../utils/sessionStorageUtils.js";
 
-//Initial state loaded from localStorage
-const initialState = loadFromLocalStorage("loginState", {
+//Initial state loaded from sessionStorage
+const initialState = loadFromSessionStorage("loginState", {
   isLoggedIn: false,
   username: "",
   email: "",
@@ -33,16 +33,16 @@ const loginSlice = createSlice({
       state.username = action.payload.username;
       //Set email to form input payload
       state.email = action.payload.email;
-      //Save to localStorage
-      saveToLocalStorage("loginState", state);
+      //Save to sessionStorage
+      saveToSessionStorage("loginState", state);
     },
     logout(state) {
       //Reset state to default state
       state.isLoggedIn = false;
       state.username = "";
       state.email = "";
-      //Clear from localStorage
-      saveToLocalStorage("loginState", {
+      //Clear from sessionStorage
+      saveToSessionStorage("loginState", {
         //Reset state to default state
         isLoggedIn: false,
         username: "",

@@ -11,14 +11,14 @@ import { useSelector } from "react-redux";
 //Import components from react-router-dom
 import { Route, Routes } from "react-router-dom";
 //Import functional components
-import NavbarRender from "./components/NavbarRender.js";
-import Home from "./components/Home.js";
-import LoginForm from "./components/LoginForm.js";
-import SignUp from "./components/SignUp.js";
+import NavbarRender from "./routes/NavbarRender.js";
+import Home from "./routes/Home.js";
+import LoginForm from "./routes/LoginForm.js";
+import SignUp from "./routes/SignUp.js";
 import Footer from "./components/Footer.js";
-import Products from "./components/Products.js";
-import Checkout from "./components/Checkout.js";
-import Orders from "./components/Orders.js";
+import Products from "./routes/Products.js";
+import Checkout from "./routes/Checkout.js";
+import Orders from "./routes/Orders.js";
 import DisclaimerAlert from "./components/DisclaimerAlert.js";
 
 // Functionality //
@@ -43,17 +43,11 @@ function App() {
       If the user is logged-in the name of the website displays in the footer
       because the name of the website in the header is replaced with the username.*/}
       {isLoggedIn && <Footer />}
+
+      {/*Demo website alert*/}
       <DisclaimerAlert></DisclaimerAlert>
     </div>
   );
 }
 
 export default App;
-
-// References //
-
-// Installation //
-
-//Installation (no date) React Router. Available at: https://reactrouter.com/start/declarative/installation (Accessed: 27 May 2025).
-//Install react-bootstrap: https://react-bootstrap.github.io/docs/getting-started/introduction/
-//Install redux: https://redux.js.org/introduction/getting-started

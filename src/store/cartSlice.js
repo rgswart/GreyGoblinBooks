@@ -1,4 +1,4 @@
-//cartSlice.js
+// store/cartSlice.js
 
 // Imports //
 
@@ -7,14 +7,14 @@ import { createSlice } from "@reduxjs/toolkit";
 //Import the UUID library
 //UUID v4 generates a universally unique identifier based on random numbers
 import { v4 as uuidv4 } from "uuid";
-//Import load and save localStorage utilities
+//Import load and save sessionStorage utilities
 import {
-  loadFromLocalStorage,
-  saveToLocalStorage,
-} from "../utils/localStorageUtils.js";
+  loadFromSessionStorage,
+  saveToSessionStorage,
+} from "../utils/sessionStorageUtils.js";
 
-//Initial state loaded from localStorage
-const initialState = loadFromLocalStorage("cart", { items: [] });
+//Initial state loaded from sessionStorage
+const initialState = loadFromSessionStorage("cart", { items: [] });
 
 // Create slice //
 
@@ -44,8 +44,8 @@ const cartSlice = createSlice({
       };
       //Push the item to state.items
       state.items.push(newItem);
-      //Save to local storage
-      saveToLocalStorage("cart", state);
+      //Save to session storage
+      saveToSessionStorage("cart", state);
     },
     //Add a targeted item deletion reducer action (clearItem)
     clearItem: (state, action) => {
@@ -53,15 +53,15 @@ const cartSlice = createSlice({
       state.items = state.items.filter(
         (item) => item.itemId !== action.payload
       );
-      //Save to localStorage
-      saveToLocalStorage("cart", state);
+      //Save to sessionStorage
+      saveToSessionStorage("cart", state);
     },
     //Add a reducer to remove all items from the cart
     clearCart: (state) => {
       //Reset the state to empty
       state.items = [];
-      //Save to localStorage
-      saveToLocalStorage("cart", state);
+      //Save to sessionStorage
+      saveToSessionStorage("cart", state);
     },
     //Add a reducer to change the quantity of a select book item in the cart
     updateItemQuantity: (state, action) => {
@@ -74,8 +74,8 @@ const cartSlice = createSlice({
         item.quantity = quantity;
         //And set the item.total to the item.unitPrice * input quantity
         item.total = item.unitPrice * quantity;
-        //Save to localStorage
-        saveToLocalStorage("cart", state);
+        //Save to sessionStorage
+        saveToSessionStorage("cart", state);
       }
     },
   },

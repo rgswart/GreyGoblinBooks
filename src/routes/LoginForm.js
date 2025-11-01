@@ -5,7 +5,7 @@
 //Import the custom css style sheet
 import "../css/LoginForm.css";
 //Import components from react-bootstrap
-import { Form, Button, Stack, Container } from "react-bootstrap";
+import { Form, Button, Stack, Container, InputGroup } from "react-bootstrap";
 //Import the useState react hook
 import { useState } from "react";
 //Import React-Redux hooks
@@ -14,54 +14,51 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 //Import formik
 import { useFormik } from "formik";
+//Import Yup for validation
+import * as Yup from "yup";
 //Import an encryption/decryption library
 import bcrypt from "bcryptjs";
 //Import functional components
 import LogoutButton from "../components/Logout";
 //Import redux actions from slices
 import { login } from "../store/loginSlice";
+//Import username encoding utilities
+import { decodeUsername } from "../utils/usernameEncoding";
+//Import eye icons for password visibility
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-// Form validation //
+// Yup Validation Schema //
 
-const validate = (values) => {
-  //Assign an errors variable
-  const errors = {};
-  //Retrieve users who have already sighed up
-  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+const validationSchema = Yup.object({
+  // Identifier validation (can be username or email)
+  identifier: Yup.string()
+    .required("Required")
+    .test("user-exists", "Email or username not registered", function (value) {
+      if (!value) return true;
+      const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
 
-  //Identifier validation (can be username or email)
-  if (!values.identifier) {
-    errors.identifier = "Required";
-  } else {
-    //Search for a username or email that matches the input
-    const userMatch = existingUsers.find(
-      (user) =>
-        user.email.toLowerCase() === values.identifier.toLowerCase() ||
-        user.username === values.identifier
-    );
-    //If none of them do match, then produce an error
-    if (!userMatch) {
-      errors.identifier = "Email or username not registered.";
-    }
-  }
+      // Check against Base64 encoded usernames and hashed emails
+      const userMatch = existingUsers.find((user) => {
+        const decodedUsername = decodeUsername(user.username);
+        return (
+          decodedUsername === value ||
+          bcrypt.compareSync(value.toLowerCase(), user.email)
+        );
+      });
 
-  //Password field validation
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length < 8) {
-    errors.password = "Must be 8 characters or more";
-  }
+      return !!userMatch;
+    }),
 
-  return errors;
-};
+  // Password validation
+  password: Yup.string()
+    .required("Required")
+    .min(8, "Must be 8 characters or more"),
+});
 
 // Functionality //
 
 //Function to render the Login page
 const LoginForm = () => {
-  //Retrieve users from localStorage
-  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-
   //Initialize Redux dispatch
   const dispatch = useDispatch();
 
@@ -71,6 +68,9 @@ const LoginForm = () => {
   //Get login state and username from Redux
   const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
   const username = useSelector((state) => state.login.username);
+
+  //Password visibility controlling state
+  const [showPassword, setShowPassword] = useState(false);
 
   //Declare a loginError state to allow for error handling against existingUsers
   const [loginError, setLoginError] = useState("");
@@ -82,24 +82,30 @@ const LoginForm = () => {
       identifier: "",
       password: "",
     },
-    //Ensure validation
-    validate,
+    //Use Yup validation schema
+    validationSchema,
     //Assign onSubmit behavior
     onSubmit: (values, { resetForm }) => {
-      //Normalize identifier input to lowercase
-      const identifierInput = values.identifier.toLowerCase();
+      //Retrieve users from sessionStorage
+      const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
 
       //Find user matching the identifier (username or email)
-      const user = existingUsers.find(
-        (user) =>
-          user.email.toLowerCase() === identifierInput ||
-          user.username === values.identifier
-      );
+      //Username is Base64 encoded in storage, email is bcrypt hashed
+      const user = existingUsers.find((user) => {
+        const decodedUsername = decodeUsername(user.username);
+        return (
+          decodedUsername === values.identifier ||
+          bcrypt.compareSync(values.identifier.toLowerCase(), user.email)
+        );
+      });
 
       //Check if password matches stored hashed password using bcrypt
       if (user && bcrypt.compareSync(values.password, user.password)) {
-        //Dispatch login with username and email
-        dispatch(login({ username: user.username, email: user.email }));
+        //Get the actual username from the stored Base64 encoded value for display
+        const actualUsername = decodeUsername(user.username);
+
+        //Dispatch login with actual username
+        dispatch(login({ username: actualUsername }));
 
         //Clear error and reset form
         setLoginError("");
@@ -192,16 +198,32 @@ const LoginForm = () => {
               <Form.Label className="text-light mt-2" htmlFor="password">
                 Password
               </Form.Label>
-              {/*See above 'Form Control explanation 1' as explanation*/}
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Password"
-                onChange={handleInputChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-                aria-label="Password input for login"
-              />
+              {/*Password field with visibility toggle*/}
+              <InputGroup>
+                {/*See above 'Form Control explanation 1' as explanation*/}
+                <Form.Control
+                  //Set conditional type of input to allow for visible password
+                  //...if eye icon was selected
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="Password"
+                  onChange={handleInputChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  aria-label="Password input for login"
+                />
+                <Button
+                  //Set button style as black text and border
+                  variant="outline-dark"
+                  //Set custom css class, and a white border and white background
+                  className="password-toggle-button border-light bg-light"
+                  //on click switch the boolean showPassword state
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {/*if showPassword is true display slashed eye, otherwise show normal eye icon*/}
+                  {showPassword ? <BsEyeSlash /> : <BsEye />}
+                </Button>
+              </InputGroup>
               {/*See above 'Error handling message explanation 1' as explanation*/}
               {formik.touched.password && formik.errors.password && (
                 <div className="text-warning mt-1">

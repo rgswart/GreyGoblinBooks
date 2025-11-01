@@ -1,4 +1,4 @@
-//store.js
+// store/store.js
 
 // Imports //
 
@@ -10,6 +10,7 @@ import loginReducer from "./loginSlice.js";
 import usersReducer from "./userSlice.js";
 import cartReducer from "./cartSlice.js";
 import ordersReducer from "./ordersSlice.js";
+import signUpAlertReducer from "./signUpAlertSlice.js";
 
 //Define the store
 const store = configureStore({
@@ -19,6 +20,7 @@ const store = configureStore({
     users: usersReducer,
     cart: cartReducer,
     orders: ordersReducer,
+    signUpAlert: signUpAlertReducer,
   },
 });
 
