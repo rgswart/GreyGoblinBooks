@@ -5,7 +5,7 @@ import { Alert } from "react-bootstrap";
 //Import React-Redux hooks
 import { useSelector, useDispatch } from "react-redux";
 //Import redux actions from slices
-import { dismissSignUpDisclaimer } from "../store/signUpAlertSlice";
+import { dismissSignUpDisclaimer } from "../store/uivisibility/signUpAlertSlice";
 import "../css/SignUpDisclaimerAlert.css";
 
 // Functionality //
@@ -25,7 +25,7 @@ const SignUpDisclaimerAlert = () => {
     return null;
   }
 
-  //Handle dismiss action - dispatch to Redux
+  //Handle dismiss action (dispatch to Redux)
   const handleDismiss = () => {
     dispatch(dismissSignUpDisclaimer());
   };

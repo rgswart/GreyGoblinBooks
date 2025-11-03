@@ -147,7 +147,7 @@ const SignUp = () => {
       //Hash encrypt the email address for storage
       const hashedEmail = bcrypt.hashSync(values.email.toLowerCase(), 10);
 
-      // DATA SANITIZATION //
+      // Data sanitisation //
 
       // Replaced first and last names with placeholder values, as they aren't necessary. Nice to show I can display it correctly in a form.
       // First name and surname replaced with generic values "J" and "Doe"
@@ -264,7 +264,6 @@ const SignUp = () => {
               <Form.Label htmlFor="username" className="form-label">
                 Username
               </Form.Label>
-              {/*See above 'Form Control explanation 1' as explanation*/}
               <Form.Control
                 id="username"
                 name="username"
@@ -277,7 +276,6 @@ const SignUp = () => {
                 maxLength={30}
                 aria-label="Username input to create account"
               />
-              {/*See above 'Error handling message explanation 1' as explanation*/}
               {formik.touched.username && formik.errors.username ? (
                 <div className="text-warning mt-1">
                   {formik.errors.username}
@@ -288,7 +286,6 @@ const SignUp = () => {
               <Form.Label htmlFor="email" className="form-label">
                 Email Address
               </Form.Label>
-              {/*See above 'Form Control explanation 1' as explanation*/}
               <Form.Control
                 id="email"
                 name="email"
@@ -301,7 +298,6 @@ const SignUp = () => {
                 maxLength={254}
                 aria-label="Email address input to create account"
               />
-              {/*See above 'Error handling message explanation 1' as explanation*/}
               {formik.touched.email && formik.errors.email ? (
                 <div className="text-warning mt-1">{formik.errors.email}</div>
               ) : null}
@@ -317,15 +313,13 @@ const SignUp = () => {
                 <Form.Control
                   id="password"
                   name="password"
-                  //Set conditional type of input to allow for visible password
-                  //...if eye icon was selected
+                  //Set conditional type of input to allow for visible password, if eye icon was selected
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
-                  //Set maxLength one above custom 64 limit to allow for immediate feedback message
-                  //...but still limit input
+                  //Set maxLength one above custom 64 limit to allow for immediate feedback message, but still limit input
                   maxLength={65}
                   aria-label="Password input to create account"
                 />
@@ -364,8 +358,7 @@ const SignUp = () => {
                 <Form.Control
                   id="passwordConfirm"
                   name="passwordConfirm"
-                  //Set conditional type of input to allow for visible password
-                  //...if eye icon was selected
+                  //Set conditional type of input to allow for visible password, if eye icon was selected
                   type={showConfirm ? "text" : "password"}
                   placeholder="Confirm password"
                   onChange={formik.handleChange}
@@ -387,7 +380,6 @@ const SignUp = () => {
                   {showConfirm ? <BsEyeSlash /> : <BsEye />}
                 </Button>
               </InputGroup>
-              {/*See above 'Error handling message explanation 1' as explanation*/}
               {formik.touched.passwordConfirm &&
               formik.errors.passwordConfirm ? (
                 <div className="text-warning mt-1">

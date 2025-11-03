@@ -6,7 +6,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   loadFromSessionStorage,
   saveToSessionStorage,
-} from "../utils/sessionStorageUtils.js";
+} from "../../utils/sessionStorageUtils.js";
 
 //Load initial state from sessionStorage with fallback
 const initialState = loadFromSessionStorage("alertState", {

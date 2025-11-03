@@ -10,7 +10,7 @@ import loginReducer from "./loginSlice.js";
 import usersReducer from "./userSlice.js";
 import cartReducer from "./cartSlice.js";
 import ordersReducer from "./ordersSlice.js";
-import signUpAlertReducer from "./signUpAlertSlice.js";
+import signUpAlertReducer from "../store/uivisibility/signUpAlertSlice.js";
 
 //Define the store
 const store = configureStore({
