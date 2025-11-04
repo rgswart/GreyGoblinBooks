@@ -1,4 +1,4 @@
-//CheckoutModal.js
+// components/CheckoutModal.js
 
 // Imports //
 

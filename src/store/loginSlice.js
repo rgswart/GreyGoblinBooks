@@ -1,4 +1,4 @@
-// store/loginSlice.js
+// src/store/loginSlice.js
 
 // Imports //
 

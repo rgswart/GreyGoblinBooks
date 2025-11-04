@@ -1,4 +1,4 @@
-//Logout.js
+// components/Logout.js
 
 // Imports //
 

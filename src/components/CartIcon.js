@@ -1,4 +1,4 @@
-//CartIcon.js
+// components/CartIcon.js
 
 // Imports //
 

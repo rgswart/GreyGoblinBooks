@@ -1,4 +1,4 @@
-// store/signUpAlertSlice.js
+// src/store/uivisbility//signUpAlertSlice.js
 
 // Imports //
 import { createSlice } from "@reduxjs/toolkit";

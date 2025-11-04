@@ -1,4 +1,4 @@
-//Home.js
+// src/routes/Home.js
 
 // Imports //
 

@@ -1,4 +1,4 @@
-//OrdersNotFound.js
+// components/OrdersNotFound.js
 
 // Imports //
 

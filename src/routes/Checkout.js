@@ -1,4 +1,4 @@
-//Checkout.js
+// src/routes/Checkout.js
 
 // Imports //
 

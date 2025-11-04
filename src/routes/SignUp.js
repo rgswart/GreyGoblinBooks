@@ -1,4 +1,4 @@
-//SignUp.js
+// src/routes/SignUp.js
 
 // Imports //
 import "../css/SignUp.css";

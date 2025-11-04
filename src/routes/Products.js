@@ -1,4 +1,4 @@
-//Products.js
+// src/routes/Products.js
 
 // Imports //
 
@@ -74,12 +74,10 @@ function Products() {
           at xxl each column takes up 3/12 (1/4) of the container width, at lg 4/12 (1/3), at sm 6/12 (1/2) and at <sm block (12/12)
           we assign key={book.id} so that each col child of the books.map function has a unique key per book object.*/}
           {books.map((book) => (
-            //A bottom and top margin of 4 is assigned (mb-4) (mt-4)
             <Col key={book.id} xl={3} lg={4} sm={6} className="mt-4 mb-4">
               {/*we then assign a card to each book*/}
               <Card className="cards">
-                {/*An image is assigned for each book with the variant="top
-                variant="top" position the image at the top of the card.
+                {/*An image is assigned for each book with the variant="top" positioning the image at the top of the card.
                 a className "img-fluid" is assigned to make the image responsive
                 the src for the image is assigned based on the "images"array, position [] = to book.colorIndex value. 
                 The colorIndex value corresponds to the position of the image in the images array
@@ -236,12 +234,3 @@ function Products() {
 }
 
 export default Products;
-
-//References//
-
-//MozDevNet (no date) Spread syntax (...) - javascript: MDN, MDN Web Docs. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax (Accessed: 27 May 2025).
-//MozDevNet (no date a) Flex-Grow - CSS: Cascading style sheets: MDN, MDN Web Docs. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow (Accessed: 27 May 2025).
-//Cards (no date) React Bootstrap. Available at: https://react-bootstrap.github.io/docs/components/cards/ (Accessed: 27 May 2025).
-//Dropdowns (no date) React Bootstrap. Available at: https://react-bootstrap.github.io/docs/components/dropdowns/ (Accessed: 27 May 2025).
-
-// Array from : https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from//

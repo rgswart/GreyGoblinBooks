@@ -1,13 +1,13 @@
 // src/tests/utils/usernameEncoding.test.js
 
+// Import the functions to be tested
 import { encodeUsername, decodeUsername } from "../../utils/usernameEncoding";
 
 // Describe a test suite
 describe("usernameEncoding", () => {
   // Define tests //
 
-  /* Verify that encoding and decoding preserves all characters through round-trip
-   Tests comprehensive character set including symbols commonly used in usernames */
+  // Verify that encoding and decoding preserves all characters
   test("encodes and decodes complex usernames correctly", () => {
     const complexUsername = "J0hn_doe+.1-2@3";
     const encoded = encodeUsername(complexUsername);

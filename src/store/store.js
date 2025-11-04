@@ -1,4 +1,4 @@
-// store/store.js
+// src/store/store.js
 
 // Imports //
 

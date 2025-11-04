@@ -1,4 +1,4 @@
-// store/ordersSlice.js
+// src/store/ordersSlice.js
 
 // Imports //
 
@@ -35,19 +35,13 @@ const ordersSlice = createSlice({
         orderId: uuidv4(),
         //Save the date as an ISO formatted string to provide to user
         date: new Date().toISOString(),
-        //Save the username to ensure the user ONLY views their orders
         username,
-        //Save the shipping method to provide stored user order shipping info
         shippingMethod,
-        //Save the shipping cost, so that the user gets an accurate breakdown of all costs
         shippingCost,
-        //Save external total as it more than the sum of items costs
         total,
         //Provide array of order items
         items: items.map((item) => ({
-          //Internal tracking (Would be used in a real store)
           itemId: item.itemId,
-          //Internal tracking (Would be used in a real store)
           bookId: item.bookId,
           //For user display per item
           title: item.title,

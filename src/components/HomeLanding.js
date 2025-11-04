@@ -1,4 +1,4 @@
-//HomeLanding.js
+// components/HomeLanding.js
 
 // Imports //
 

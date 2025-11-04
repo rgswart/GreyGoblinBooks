@@ -1,4 +1,4 @@
-// store/booksSlice.js
+// src/store/booksSlice.js
 
 // Imports //
 

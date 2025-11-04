@@ -1,4 +1,4 @@
-//CheckoutMain.js
+// components/CheckoutMain.js
 
 // Imports //
 

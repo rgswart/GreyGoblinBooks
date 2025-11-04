@@ -1,4 +1,4 @@
-// store/cartSlice.js
+// src/store/cartSlice.js
 
 // Imports //
 

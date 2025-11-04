@@ -1,4 +1,4 @@
-//userSlice.js
+// src/store/userSlice.js
 
 // Imports //
 

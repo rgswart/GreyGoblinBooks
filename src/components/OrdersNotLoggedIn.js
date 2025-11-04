@@ -1,4 +1,4 @@
-//OrdersNotLoggedIn.js
+// components/OrdersNotLoggedIn.js
 
 // Imports //
 

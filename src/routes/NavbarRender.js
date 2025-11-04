@@ -1,4 +1,4 @@
-//NavbarRender.js
+// src/routes/NavbarRender.js
 
 // Imports //
 
