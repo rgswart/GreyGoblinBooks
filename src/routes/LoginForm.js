@@ -4,28 +4,18 @@
 
 //Import the custom css style sheet
 import "../css/LoginForm.css";
-//Import components from react-bootstrap
 import { Form, Button, Stack, Container, InputGroup } from "react-bootstrap";
-//Import the useState react hook
 import { useState } from "react";
-//Import React-Redux hooks
 import { useSelector, useDispatch } from "react-redux";
-//Import React-router-dom components/hooks
 import { Link, useNavigate } from "react-router-dom";
-//Import formik
 import { useFormik } from "formik";
-//Import Yup for validation
 import * as Yup from "yup";
-//Import an encryption/decryption library
 import bcrypt from "bcryptjs";
-//Import functional components
-import LogoutButton from "../components/Logout";
-//Import redux actions from slices
-import { login } from "../store/loginSlice";
-//Import username encoding utilities
-import { decodeUsername } from "../utils/usernameEncoding";
-//Import eye icons for password visibility
 import { BsEye, BsEyeSlash } from "react-icons/bs";
+//Import custom components
+import LogoutButton from "../components/Logout";
+import { login } from "../store/loginSlice";
+import { decodeUsername } from "../utils/usernameEncoding";
 
 // Yup Validation Schema //
 

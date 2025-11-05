@@ -14,7 +14,6 @@ import {
 const initialState = loadFromSessionStorage("loginState", {
   isLoggedIn: false,
   username: "",
-  email: "",
 });
 
 // Create slice //
@@ -31,8 +30,6 @@ const loginSlice = createSlice({
       state.isLoggedIn = true;
       //Set username to form input payload
       state.username = action.payload.username;
-      //Set email to form input payload
-      state.email = action.payload.email;
       //Save to sessionStorage
       saveToSessionStorage("loginState", state);
     },
@@ -40,13 +37,11 @@ const loginSlice = createSlice({
       //Reset state to default state
       state.isLoggedIn = false;
       state.username = "";
-      state.email = "";
       //Clear from sessionStorage
       saveToSessionStorage("loginState", {
         //Reset state to default state
         isLoggedIn: false,
         username: "",
-        email: "",
       });
     },
   },
