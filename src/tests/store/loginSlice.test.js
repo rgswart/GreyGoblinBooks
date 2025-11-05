@@ -31,7 +31,7 @@ describe("loginSlice", () => {
   });
 
   // Test 2: Load test user data and simulate login dispatch
-  test("login action updates authentication state with username", () => {
+  test("login action updates login state with username", () => {
     const userCredentials = {
       username: "testuser",
     };
