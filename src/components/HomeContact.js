@@ -1,4 +1,4 @@
-// components/HomeContact.js
+// src/components/HomeContact.js
 
 // Imports //
 

@@ -76,7 +76,7 @@ function Products() {
           {books.map((book) => (
             <Col key={book.id} xl={3} lg={4} sm={6} className="mt-4 mb-4">
               {/*we then assign a card to each book*/}
-              <Card className="cards">
+              <Card className="cards" data-testid={`book-card-${book.id}`}>
                 {/*An image is assigned for each book with the variant="top" positioning the image at the top of the card.
                 a className "img-fluid" is assigned to make the image responsive
                 the src for the image is assigned based on the "images"array, position [] = to book.colorIndex value. 
@@ -130,6 +130,7 @@ function Products() {
                         onSelect={(selectedColorIndex) =>
                           handleColorChange(book.id, Number(selectedColorIndex))
                         }
+                        data-testid={`color-dropdown-${book.id}`}
                       >
                         {/*The toggle element for the dropdown is created here
                           it is styled as bootstrap outline-secondary. (grey text and border) (default color only)
@@ -177,6 +178,7 @@ function Products() {
                         onSelect={(quantitySelect) =>
                           handleBuy(book.id, Number(quantitySelect))
                         }
+                        data-testid={`cart-dropdown-${book.id}`}
                       >
                         {/*The add to cart toggle is styled as a green dropdown (variant="success")*/}
                         <Dropdown.Toggle

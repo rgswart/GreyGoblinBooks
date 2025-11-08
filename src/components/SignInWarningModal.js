@@ -1,4 +1,4 @@
-// components/SignInWarningModal.js
+// src/components/SignInWarningModal.js
 
 // Imports //
 

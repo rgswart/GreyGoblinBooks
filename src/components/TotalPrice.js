@@ -1,4 +1,4 @@
-// components/TotalPrice.js
+// src/components/TotalPrice.js
 
 //import components from react-router-dom
 import { useLocation } from "react-router-dom";

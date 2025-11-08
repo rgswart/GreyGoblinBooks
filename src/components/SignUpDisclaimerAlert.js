@@ -1,4 +1,4 @@
-// components/SignUpDisclaimerAlert.js
+// src/components/SignUpDisclaimerAlert.js
 
 // Imports //
 import { Alert } from "react-bootstrap";

@@ -1,4 +1,4 @@
-// components/DisclaimerAlert.js
+// src/components/DisclaimerAlert.js
 
 //Imports//
 

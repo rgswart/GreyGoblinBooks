@@ -1,4 +1,4 @@
-// components/HelpShipping.js
+// src/components/HelpShipping.js
 
 // Imports //
 

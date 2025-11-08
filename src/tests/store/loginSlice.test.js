@@ -3,7 +3,7 @@
 // Imports //
 
 import { configureStore } from "@reduxjs/toolkit";
-import loginReducer, { login, logout } from "../../store/loginSlice";
+import loginReducer, { login, logout } from "../../store/loginSlice.js";
 
 // Describe a test suite
 describe("loginSlice", () => {

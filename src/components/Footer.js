@@ -1,4 +1,4 @@
-// components/Footer.js
+// src/components/Footer.js
 
 // Imports //
 

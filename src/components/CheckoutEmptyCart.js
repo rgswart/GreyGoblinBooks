@@ -1,4 +1,4 @@
-// components/CheckoutEmptyCart.js
+// src/components/CheckoutEmptyCart.js
 
 // Imports //
 

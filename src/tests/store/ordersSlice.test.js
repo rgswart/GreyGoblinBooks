@@ -3,8 +3,8 @@
 // Imports //
 
 import { configureStore } from "@reduxjs/toolkit";
-import ordersReducer, { placeOrder } from "../../store/ordersSlice";
-import { booksData } from "../../data/BooksData";
+import ordersReducer, { placeOrder } from "../../store/ordersSlice.js";
+import { booksData } from "../../data/BooksData.js";
 import { v4 as uuidv4 } from "uuid";
 
 // Describe a test suite

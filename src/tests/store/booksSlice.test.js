@@ -2,9 +2,9 @@
 
 // Import the functions to be tested
 import { configureStore } from "@reduxjs/toolkit";
-import booksReducer, { updateColor } from "../../store/booksSlice";
+import booksReducer, { updateColor } from "../../store/booksSlice.js";
 // Import data
-import { booksData } from "../../data/BooksData";
+import { booksData } from "../../data/BooksData.js";
 
 // Describe tests //
 

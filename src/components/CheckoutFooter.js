@@ -1,4 +1,4 @@
-// components/CheckoutFooter.js
+// src/components/CheckoutFooter.js
 
 // Imports //
 

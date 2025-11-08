@@ -1,4 +1,4 @@
-// components/Logout.js
+// src/components/Logout.js
 
 // Imports //
 
