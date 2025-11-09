@@ -9,6 +9,7 @@ import cartReducer, {
   clearCart,
   updateItemQuantity,
 } from "../../store/cartSlice.js";
+import { booksData, images } from "../../data/BooksData.js";
 import { v4 as uuidv4 } from "uuid";
 
 // Describe tests //
@@ -35,16 +36,18 @@ describe("cartSlice", () => {
     expect(state).toEqual({ items: [] });
   });
 
-  // Test 2: Mock an add to cart action
+  // Test 2: Mock an add to cart action with book data
   test("addToCart action creates item with UUID and calculates total", () => {
+    const fellowshipBook = booksData[7]; // The Fellowship of the Ring
+
     const mockBookData = {
-      bookId: 1,
-      title: "The Fellowship of the Ring",
-      author: "J.R.R. Tolkien",
-      color: "green",
-      image: "color1Image.png",
+      bookId: fellowshipBook.id,
+      title: fellowshipBook.title,
+      author: fellowshipBook.author,
+      color: "green", // colorIndex 0 corresponds to green
+      image: images[0], // Use green cover image
       quantity: 2,
-      price: 600,
+      price: fellowshipBook.price,
     };
 
     // Dispatch action to add item to cart
@@ -57,8 +60,9 @@ describe("cartSlice", () => {
     expect(addedItem.itemId).toBeDefined();
     expect(typeof addedItem.itemId).toBe("string");
     expect(addedItem.itemId.length).toBe(36);
-    expect(addedItem.bookId).toBe(1);
+    expect(addedItem.bookId).toBe(0);
     expect(addedItem.title).toBe("The Fellowship of the Ring");
+    expect(addedItem.author).toBe("J.R.R. Tolkien");
     expect(addedItem.quantity).toBe(2);
     expect(addedItem.unitPrice).toBe(600);
     expect(addedItem.total).toBe(1200); // 2 * 600
@@ -66,7 +70,7 @@ describe("cartSlice", () => {
 
   // Test 3: Test clearItem action
   test("clearItem action removes specific item by itemId", () => {
-    // Generate real UUIDs for test items
+    // Generate UUIDs for test items
     const realUuid1 = uuidv4();
     const realUuid2 = uuidv4();
 
@@ -74,17 +78,25 @@ describe("cartSlice", () => {
     const mockItems = [
       {
         itemId: realUuid1,
-        title: "Book 1",
+        bookId: booksData[7].id, // The Fellowship of the Ring
+        title: booksData[7].title,
+        author: booksData[7].author,
+        color: "green",
+        image: images[0],
         quantity: 1,
-        unitPrice: 100,
-        total: 100,
+        unitPrice: booksData[7].price,
+        total: booksData[7].price,
       },
       {
         itemId: realUuid2,
-        title: "Book 2",
+        bookId: booksData[4].id, // Dune
+        title: booksData[4].title,
+        author: booksData[4].author,
+        color: "brown",
+        image: images[2],
         quantity: 1,
-        unitPrice: 200,
-        total: 200,
+        unitPrice: booksData[4].price,
+        total: booksData[4].price,
       },
     ];
 
@@ -102,7 +114,8 @@ describe("cartSlice", () => {
     // Verify only targeted item was removed
     expect(state.items).toHaveLength(1);
     expect(state.items[0].itemId).toBe(realUuid2);
-    expect(state.items[0].title).toBe("Book 2");
+    expect(state.items[0].title).toBe("Dune"); // Only Dune remains
+    expect(state.items[0].author).toBe("Frank Herbert");
   });
 
   //Test 4: Check that "empty cart" removes all cart items
@@ -115,17 +128,25 @@ describe("cartSlice", () => {
     const mockItems = [
       {
         itemId: realUuid1,
-        title: "Book 1",
+        bookId: booksData[7].id, // The Fellowship of the Ring
+        title: booksData[7].title,
+        author: booksData[7].author,
+        color: "green",
+        image: images[0],
         quantity: 1,
-        unitPrice: 100,
-        total: 100,
+        unitPrice: booksData[7].price,
+        total: booksData[7].price,
       },
       {
         itemId: realUuid2,
-        title: "Book 2",
+        bookId: booksData[4].id, // Dune
+        title: booksData[4].title,
+        author: booksData[4].author,
+        color: "brown",
+        image: images[2],
         quantity: 1,
-        unitPrice: 200,
-        total: 200,
+        unitPrice: booksData[4].price,
+        total: booksData[4].price,
       },
     ];
 
@@ -144,7 +165,7 @@ describe("cartSlice", () => {
     expect(state.items).toEqual([]);
   });
 
-  // Test 5: Test quantity update from Cart
+  // Test 5: Test quantity update action from Cart
   test("updateItemQuantity modifies quantity and recalculates total", () => {
     // Generate UUID for test item
     const realUuid = uuidv4();
@@ -153,10 +174,14 @@ describe("cartSlice", () => {
     const mockItems = [
       {
         itemId: realUuid,
-        title: "Book 1",
+        bookId: booksData[7].id, // The Fellowship of the Ring
+        title: booksData[7].title,
+        author: booksData[7].author,
+        color: "green",
+        image: images[0],
         quantity: 1,
-        unitPrice: 100,
-        total: 100,
+        unitPrice: booksData[7].price,
+        total: booksData[7].price,
       },
     ];
 
@@ -174,7 +199,7 @@ describe("cartSlice", () => {
 
     // Verify quantity and total were updated correctly
     expect(updatedItem.quantity).toBe(3);
-    expect(updatedItem.total).toBe(300); // 3 * 100
+    expect(updatedItem.total).toBe(1800); // 3 * 600
   });
 
   // Test 6: Test if selected item quantity is < 1 (Not possible under normal use of website)
@@ -182,14 +207,18 @@ describe("cartSlice", () => {
     // Generate UUID for test item
     const realUuid = uuidv4();
 
-    // Populate cart with test item
+    // Populate cart with test item using real book data
     const mockItems = [
       {
         itemId: realUuid,
-        title: "Book 1",
+        bookId: booksData[7].id, // The Fellowship of the Ring
+        title: booksData[7].title,
+        author: booksData[7].author,
+        color: "green",
+        image: images[0],
         quantity: 2,
-        unitPrice: 100,
-        total: 200,
+        unitPrice: booksData[7].price,
+        total: 1200, // 2 * 600
       },
     ];
 
