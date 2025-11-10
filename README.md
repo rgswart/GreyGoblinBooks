@@ -13,6 +13,7 @@ This program can be viewed at https://rgswart.github.io/GreyGoblinBooks/
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the App](#running-the-app)
+- [Testing](#testing)
 
 ## Features
 
@@ -67,3 +68,11 @@ npm start
 ```
 
 Once the server starts, the app will open automatically in your default browser at [http://localhost:3000](http://localhost:3000)
+
+## Testing
+
+To run tests
+
+```bash
+npm test
+```
