@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/GreyGoblinBooks/static/css/main.480365c5.css",
-    "main.js": "/GreyGoblinBooks/static/js/main.66e0db9f.js",
+    "main.css": "/GreyGoblinBooks/static/css/main.2811ccb9.css",
+    "main.js": "/GreyGoblinBooks/static/js/main.2f7f9e31.js",
     "static/js/453.f4e9fc1d.chunk.js": "/GreyGoblinBooks/static/js/453.f4e9fc1d.chunk.js",
     "static/media/genBooksStoreLeft2.png": "/GreyGoblinBooks/static/media/genBooksStoreLeft2.02135737bdd33264aa97.png",
     "static/media/genContactBackground3.png": "/GreyGoblinBooks/static/media/genContactBackground3.b254183f3f2cccc70b9a.png",
@@ -11,16 +11,16 @@
     "static/media/hardcoverColor2Org.png": "/GreyGoblinBooks/static/media/hardcoverColor2Org.85e81f50bbb9c23091c8.png",
     "static/media/hardcoverColor1Org.png": "/GreyGoblinBooks/static/media/hardcoverColor1Org.0fc4f2a6e06b54f7f905.png",
     "static/media/goblin-man-with-book-portrait.ico": "/GreyGoblinBooks/static/media/goblin-man-with-book-portrait.0b05400b36e09bcf99f1.ico",
-    "static/media/not-logged-in.svg": "/GreyGoblinBooks/static/media/not-logged-in.42295d750b1597fce2002bc1f80dc638.svg",
-    "static/media/empty-cart.svg": "/GreyGoblinBooks/static/media/empty-cart.3d1852b81c170a16816ed0529dc98b49.svg",
-    "static/media/no-orders.svg": "/GreyGoblinBooks/static/media/no-orders.c0c95833488b17a4a2195924b6ea0b2d.svg",
+    "static/media/not-logged-in.svg": "/GreyGoblinBooks/static/media/not-logged-in.c546af5296869a8e05b63b6cba4b1e2f.svg",
+    "static/media/empty-cart.svg": "/GreyGoblinBooks/static/media/empty-cart.3ceb9bcda3be5bece20a592fddfaf177.svg",
+    "static/media/no-orders.svg": "/GreyGoblinBooks/static/media/no-orders.3cf4def46683bf186bfe92e90a0d57fd.svg",
     "index.html": "/GreyGoblinBooks/index.html",
-    "main.480365c5.css.map": "/GreyGoblinBooks/static/css/main.480365c5.css.map",
-    "main.66e0db9f.js.map": "/GreyGoblinBooks/static/js/main.66e0db9f.js.map",
+    "main.2811ccb9.css.map": "/GreyGoblinBooks/static/css/main.2811ccb9.css.map",
+    "main.2f7f9e31.js.map": "/GreyGoblinBooks/static/js/main.2f7f9e31.js.map",
     "453.f4e9fc1d.chunk.js.map": "/GreyGoblinBooks/static/js/453.f4e9fc1d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.480365c5.css",
-    "static/js/main.66e0db9f.js"
+    "static/css/main.2811ccb9.css",
+    "static/js/main.2f7f9e31.js"
   ]
 }
