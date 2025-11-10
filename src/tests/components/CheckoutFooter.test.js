@@ -65,20 +65,21 @@ describe("CheckoutFooter", () => {
 
   // Define tests //
 
-  // Test 1: Verify cart total calculation matches the reduce logic from Checkout.js
-  test("cart total calculation matches reduce logic from Checkout component", () => {
+  // Test 1: Verify cart total calculation
+  test("cart total calculation check", () => {
     const state = store.getState();
 
-    // Simulate the same calculation that happens in Checkout.js
+    // Simulate total calculation from Checkout.js
     const calculatedTotal = state.cart.items.reduce(
       (sum, item) => sum + item.total,
       0
     );
     const expectedTotal = 1200 + 630; // 1830
 
+    // Define expected value
     expect(calculatedTotal).toBe(expectedTotal);
 
-    // Test that CheckoutFooter displays this calculated total correctly
+    // Test that CheckoutFooter displays the calculated total correctly
     render(
       <Provider store={store}>
         <CheckoutFooter
